@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         descriptionTextView = UITextView()
         view.addSubview(descriptionTextView)
         descriptionTextView.setupTextView(text: "Join us today in our fun and games!")
-        descriptionTextView.font = UIFont.boldSystemFont(ofSize: 18)
         descriptionTextView.textAlignment = .center
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = false
