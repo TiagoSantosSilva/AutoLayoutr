@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     var bearImageView: UIImageView!
     var descriptionTextView: UITextView!
+    var topImageContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,14 @@ class ViewController: UIViewController {
     }
     
     fileprivate func setupLayout() {
-        let topImageContainerView = UIView()
+        topImageContainerView = UIView()
         topImageContainerView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         topImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         view.addSubview(topImageContainerView)
         
         topImageContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        topImageContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        topImageContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        topImageContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topImageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         topImageContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         
         topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,8 +41,8 @@ class ViewController: UIViewController {
     
     fileprivate func setupBearImageView() {
         bearImageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
-        view.addSubview(bearImageView)
-        bearImageView.setImageViewConstraints(xAnchor: view.centerXAnchor, yAnchor: view.topAnchor, topAnchorConstant: 100, widthAnchor: 200, heightAnchor: 200)
+        topImageContainerView.addSubview(bearImageView)
+        bearImageView.setImageViewConstraints(xAnchor: topImageContainerView.centerXAnchor, yAnchor: topImageContainerView.topAnchor, topAnchorConstant: 100, widthAnchor: 200, heightAnchor: 200)
     }
     
     fileprivate func setupDescriptionTextView() {
