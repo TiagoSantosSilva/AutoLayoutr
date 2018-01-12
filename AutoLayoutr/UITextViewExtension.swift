@@ -13,10 +13,10 @@ extension UITextView {
         self.text = text
     }
     
-    func setupTextViewAnchors(topAnchor: NSLayoutYAxisAnchor, topAnchorConstant: CGFloat, leftAnchor: NSLayoutXAxisAnchor, rightAnchor: NSLayoutXAxisAnchor,
+    func setupTextViewAnchors(topAnchor: NSLayoutYAxisAnchor, leftAnchor: NSLayoutXAxisAnchor, rightAnchor: NSLayoutXAxisAnchor,
                               bottomAnchor: NSLayoutYAxisAnchor, bottomAnchorConstant: CGFloat) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.topAnchor.constraint(equalTo: topAnchor, constant: topAnchorConstant).isActive = true
+        self.topAnchor.constraint(equalTo: topAnchor).isActive = true
         self.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         self.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: bottomAnchor, constant: bottomAnchorConstant).isActive = true

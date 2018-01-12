@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         descriptionTextView.textAlignment = .center
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = false
-        descriptionTextView.setupTextViewAnchors(topAnchor: bearImageView.bottomAnchor, topAnchorConstant: 120, leftAnchor: view.leftAnchor, rightAnchor: view.rightAnchor, bottomAnchor: view.bottomAnchor, bottomAnchorConstant: 0)
+        descriptionTextView.setupTextViewAnchors(topAnchor: topImageContainerView.bottomAnchor, leftAnchor: view.leftAnchor, rightAnchor: view.rightAnchor, bottomAnchor: view.bottomAnchor, bottomAnchorConstant: 0)
     }
     
     override var prefersStatusBarHidden: Bool {
