@@ -15,17 +15,8 @@ class ViewController: UIViewController {
         
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
-        
-        // enables autolayout for the image view
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(imageView)
-        
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        let bearImageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
+        view.addSubview(bearImageView)
+        bearImageView.setImageViewConstraints(xAnchor: view.centerXAnchor, yAnchor: view.topAnchor, topAnchorConstant: 100, widthAnchor: 200, heightAnchor: 200)
     }
 }
-
