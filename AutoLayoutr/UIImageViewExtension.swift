@@ -14,7 +14,7 @@ extension UIImageView {
         
         // enables autolayout for the image view
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+        self.contentMode = .scaleAspectFit
         self.centerXAnchor.constraint(equalTo: xAnchor).isActive = true
         self.topAnchor.constraint(equalTo: yAnchor, constant: topAnchorConstant).isActive = true
         self.widthAnchor.constraint(equalToConstant: widthAnchor).isActive = true

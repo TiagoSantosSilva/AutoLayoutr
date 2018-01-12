@@ -18,6 +18,22 @@ class ViewController: UIViewController {
         
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
+        setupLayout()
+    }
+    
+    fileprivate func setupLayout() {
+        let topImageContainerView = UIView()
+        topImageContainerView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        topImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        view.addSubview(topImageContainerView)
+        
+        topImageContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        topImageContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        topImageContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        topImageContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        
+        topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
+        
         setupBearImageView()
         setupDescriptionTextView()
     }
