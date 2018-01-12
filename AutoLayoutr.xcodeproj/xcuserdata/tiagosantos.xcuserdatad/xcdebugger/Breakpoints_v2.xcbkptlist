@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AutoLayoutr/UITextViewExtension.swift"
-            timestampString = "537490488.797336"
+            timestampString = "537491900.580134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AutoLayoutr/ViewController.swift"
-            timestampString = "537490488.797424"
+            timestampString = "537491900.5802211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "setupLayout()"
             landmarkType = "7">
          </BreakpointContent>

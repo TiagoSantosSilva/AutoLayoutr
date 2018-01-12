@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         setupLayout()
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
     fileprivate func setupBearImageView() {
         bearImageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
         topImageContainerView.addSubview(bearImageView)
-        bearImageView.setImageViewConstraints(xAnchor: topImageContainerView.centerXAnchor, yAnchor: topImageContainerView.topAnchor, topAnchorConstant: 100, widthAnchor: 200, heightAnchor: 200)
+        bearImageView.setImageViewConstraints(xAnchor: topImageContainerView.centerXAnchor, yAnchor: topImageContainerView.centerYAnchor, heightAnchor: topImageContainerView.heightAnchor, multiplier: 0.5)
     }
     
     fileprivate func setupDescriptionTextView() {
@@ -54,5 +55,9 @@ class ViewController: UIViewController {
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = false
         descriptionTextView.setupTextViewAnchors(topAnchor: bearImageView.bottomAnchor, topAnchorConstant: 120, leftAnchor: view.leftAnchor, rightAnchor: view.rightAnchor, bottomAnchor: view.bottomAnchor, bottomAnchorConstant: 0)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
     }
 }
