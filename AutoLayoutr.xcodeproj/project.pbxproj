@@ -13,6 +13,8 @@
 		2705CF1D200942D700D62F4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2705CF1C200942D700D62F4E /* Assets.xcassets */; };
 		2705CF20200942D700D62F4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2705CF1E200942D700D62F4E /* LaunchScreen.storyboard */; };
 		2705CF2A2009499F00D62F4E /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705CF292009499F00D62F4E /* UIImageViewExtension.swift */; };
+		27070150200ABCFB007B1B46 /* SwipingControllerHandlersExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707014F200ABCFB007B1B46 /* SwipingControllerHandlersExtension.swift */; };
+		27070152200ABDD2007B1B46 /* SwipingControllerSetupsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27070151200ABDD2007B1B46 /* SwipingControllerSetupsExtension.swift */; };
 		2754F2B220095C2D009A2107 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754F2B120095C2D009A2107 /* UITextViewExtension.swift */; };
 		27A65EFA200A622A005E5AFF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65EF9200A622A005E5AFF /* UIViewExtension.swift */; };
 		27A65EFD200A640B005E5AFF /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65EFC200A640B005E5AFF /* UIButtonExtension.swift */; };
@@ -20,6 +22,7 @@
 		27A65F08200A8896005E5AFF /* SwippingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65F07200A8896005E5AFF /* SwippingController.swift */; };
 		27A65F0B200A9191005E5AFF /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65F0A200A9191005E5AFF /* PageCell.swift */; };
 		27A65F0E200A9CBF005E5AFF /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65F0D200A9CBF005E5AFF /* Page.swift */; };
+		27A65F13200ABC85005E5AFF /* SwipingControllerCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65F12200ABC85005E5AFF /* SwipingControllerCollectionViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,8 @@
 		2705CF1F200942D700D62F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2705CF21200942D700D62F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2705CF292009499F00D62F4E /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		2707014F200ABCFB007B1B46 /* SwipingControllerHandlersExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingControllerHandlersExtension.swift; sourceTree = "<group>"; };
+		27070151200ABDD2007B1B46 /* SwipingControllerSetupsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingControllerSetupsExtension.swift; sourceTree = "<group>"; };
 		2754F2B120095C2D009A2107 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		27A65EF9200A622A005E5AFF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		27A65EFC200A640B005E5AFF /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -38,6 +43,7 @@
 		27A65F07200A8896005E5AFF /* SwippingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwippingController.swift; sourceTree = "<group>"; };
 		27A65F0A200A9191005E5AFF /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		27A65F0D200A9CBF005E5AFF /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		27A65F12200ABC85005E5AFF /* SwipingControllerCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingControllerCollectionViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		27A65EFB200A63F8005E5AFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				27A65F10200ABC60005E5AFF /* Controllers */,
 				2705CF292009499F00D62F4E /* UIImageViewExtension.swift */,
 				2754F2B120095C2D009A2107 /* UITextViewExtension.swift */,
 				27A65EF9200A622A005E5AFF /* UIViewExtension.swift */,
@@ -118,6 +125,24 @@
 				27A65F0D200A9CBF005E5AFF /* Page.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		27A65F10200ABC60005E5AFF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27A65F11200ABC69005E5AFF /* SwipingController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		27A65F11200ABC69005E5AFF /* SwipingController */ = {
+			isa = PBXGroup;
+			children = (
+				27A65F12200ABC85005E5AFF /* SwipingControllerCollectionViewExtension.swift */,
+				2707014F200ABCFB007B1B46 /* SwipingControllerHandlersExtension.swift */,
+				27070151200ABDD2007B1B46 /* SwipingControllerSetupsExtension.swift */,
+			);
+			path = SwipingController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,13 +219,16 @@
 			files = (
 				27A65F08200A8896005E5AFF /* SwippingController.swift in Sources */,
 				27A65EFA200A622A005E5AFF /* UIViewExtension.swift in Sources */,
+				27A65F13200ABC85005E5AFF /* SwipingControllerCollectionViewExtension.swift in Sources */,
 				2705CF18200942D700D62F4E /* ViewController.swift in Sources */,
 				2705CF16200942D700D62F4E /* AppDelegate.swift in Sources */,
+				27070152200ABDD2007B1B46 /* SwipingControllerSetupsExtension.swift in Sources */,
 				27A65F0E200A9CBF005E5AFF /* Page.swift in Sources */,
 				27A65F05200A845F005E5AFF /* UIColorExtension.swift in Sources */,
 				27A65F0B200A9191005E5AFF /* PageCell.swift in Sources */,
 				2705CF2A2009499F00D62F4E /* UIImageViewExtension.swift in Sources */,
 				2754F2B220095C2D009A2107 /* UITextViewExtension.swift in Sources */,
+				27070150200ABCFB007B1B46 /* SwipingControllerHandlersExtension.swift in Sources */,
 				27A65EFD200A640B005E5AFF /* UIButtonExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
