@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "cellId"
 
-class SwipingController: UICollectionViewController {
+class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,10 @@ class SwipingController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         cell.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
     }
 }
 
