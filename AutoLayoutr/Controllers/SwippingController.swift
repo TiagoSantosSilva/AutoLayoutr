@@ -94,8 +94,6 @@ extension SwipingController {
 
 extension SwipingController {
     @objc private func handleNextButtonTapped() {
-        print("Trying to advance to next.")
-        
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
@@ -103,12 +101,18 @@ extension SwipingController {
     }
     
     @objc private func handlePrevButtonTapped() {
-        print("Trying to back to previous.")
-        
         let previousIndex = max(pageControl.currentPage - 1, 0)
         let indexPath = IndexPath(item: previousIndex, section: 0)
         pageControl.currentPage = previousIndex
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+}
+
+extension SwipingController {
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let targetXPointee = targetContentOffset.pointee.x
+        let currentCollectionViewCell = Int(targetXPointee / view.frame.width)
+        pageControl.currentPage = currentCollectionViewCell
     }
 }
 
