@@ -40,7 +40,7 @@ extension ViewController {
     
     fileprivate func setupBottomControls() {
         previousButton = setupBottomButton(title: "PREV", titleColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
-        nextButton = setupBottomButton(title: "NEXT", titleColor: getPinkColor())
+        nextButton = setupBottomButton(title: "NEXT", titleColor: .mainPink)
         pageControl = setupBottomPageControl()
         
         let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
@@ -54,14 +54,14 @@ extension ViewController {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.numberOfPages = 4
-        pageControl.currentPageIndicatorTintColor = getPinkColor()
-        pageControl.pageIndicatorTintColor = getFadedPinkColor()
+        pageControl.currentPageIndicatorTintColor = .mainPink
+        pageControl.pageIndicatorTintColor = .fadedPink
         return pageControl
     }
     
     fileprivate func setupBottomButton(title: String, titleColor: UIColor) -> UIButton {
         let button = UIButton(type: .system)
-        button.setupButtonBackgroundColorTitleType(backgroundColor: .clear, title: "PREV", type: .normal)
+        button.setupButtonBackgroundColorTitleType(backgroundColor: .clear, title: title, type: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(titleColor, for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
