@@ -51,7 +51,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     fileprivate func setupBottomPageControl() -> UIPageControl {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
-        pageControl.numberOfPages = 4
+        pageControl.numberOfPages = pages.count
         pageControl.currentPageIndicatorTintColor = .mainPink
         pageControl.pageIndicatorTintColor = .fadedPink
         return pageControl
@@ -95,10 +95,20 @@ extension SwipingController {
 extension SwipingController {
     @objc private func handleNextButtonTapped() {
         print("Trying to advance to next.")
+        
+        let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        pageControl.currentPage = nextIndex
+        collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     @objc private func handlePrevButtonTapped() {
         print("Trying to back to previous.")
+        
+        let previousIndex = max(pageControl.currentPage - 1, 0)
+        let indexPath = IndexPath(item: previousIndex, section: 0)
+        pageControl.currentPage = previousIndex
+        collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
 

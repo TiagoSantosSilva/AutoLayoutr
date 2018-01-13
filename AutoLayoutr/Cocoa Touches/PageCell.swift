@@ -50,7 +50,7 @@ extension PageCell {
     }
     
     fileprivate func setupImageContainerViewConstraints() {
-        topImageContainerView.backgroundColor = .red
+        topImageContainerView.backgroundColor = .clear
         topImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         addSubview(topImageContainerView)
         topImageContainerView.setupUIViewConstraints(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, heightAnchor: heightAnchor, heightAnchorMultiplier: 0.5)
