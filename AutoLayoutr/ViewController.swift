@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var descriptionTextView: UITextView!
     var topImageContainerView: UIView!
     var previousButton: UIButton!
+    var nextButton: UIButton!
     var bottomControlsStackView: UIStackView!
     
     override func viewDidLoad() {
@@ -40,22 +41,26 @@ extension ViewController {
         let yellowView = UIView()
         yellowView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         
-        let blueView = UIView()
-        blueView.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        setupPreviousButton()
+        setupNextButton()
         
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [yellowView, blueView])
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, yellowView, nextButton])
         view.addSubview(bottomControlsStackView)
         bottomControlsStackView.setupUIViewConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, heightConstant: 50)
         bottomControlsStackView.distribution = .fillEqually
-        // setupPreviousButton()
+        
     }
     
     fileprivate func setupPreviousButton() {
         previousButton = UIButton(type: .system)
         previousButton.setupButtonBackgroundColorTitleType(backgroundColor: #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1), title: "Prev", type: .normal)
         previousButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        view.addSubview(previousButton)
-        previousButton.setButtonAnchors(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, heightConstant: 50)
+    }
+    
+    fileprivate func setupNextButton() {
+        nextButton = UIButton(type: .system)
+        nextButton.setupButtonBackgroundColorTitleType(backgroundColor: #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), title: "Next", type: .normal)
+        nextButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
     }
     
     fileprivate func setupTopImageContainerView() {

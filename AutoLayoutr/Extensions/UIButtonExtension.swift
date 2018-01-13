@@ -13,12 +13,4 @@ extension UIButton {
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: type)
     }
-    
-    func setButtonAnchors(bottomAnchor: NSLayoutYAxisAnchor, leadingAnchor: NSLayoutXAxisAnchor, trailingAnchor: NSLayoutXAxisAnchor, heightConstant: CGFloat) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        self.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        self.heightAnchor.constraint(equalToConstant: heightConstant).isActive = true
-    }
 }
