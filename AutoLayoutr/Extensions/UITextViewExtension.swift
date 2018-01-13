@@ -9,10 +9,10 @@
 import UIKit
 
 extension UITextView {
-    func setupTextView(text: String) {
-        let attributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
+    func setupTextView(headerText: String, bodyText: String) {
+        let attributedText = NSMutableAttributedString(string: headerText, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
         
-        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon.",
+        attributedText.append(NSAttributedString(string: "\n\n\n\(bodyText)",
                                                  attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13),
                                                               NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)]))
             

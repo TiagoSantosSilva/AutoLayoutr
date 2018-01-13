@@ -12,10 +12,13 @@ class PageCell: UICollectionViewCell {
     
     var page: Page? {
         didSet {
-            print(page?.imageName)
+            guard let unwrappedPage = page else { return }
+            
+            setupBearImageView(unwrappedPage: unwrappedPage)
+            setupDescriptionTextView(unwrappedPage: unwrappedPage)
         }
     }
-    
+
     private var bearImageView: UIImageView!
     private var descriptionTextView: UITextView!
     private var topImageContainerView: UIView!
@@ -37,8 +40,6 @@ class PageCell: UICollectionViewCell {
 extension PageCell {
     fileprivate func setupLayout() {
         setupTopImageContainerView()
-        setupBearImageView()
-        setupDescriptionTextView()
         setupBottomControls()
     }
     
@@ -77,8 +78,8 @@ extension PageCell {
         setupImageContainerViewConstraints()
     }
     
-    fileprivate func setupBearImageView() {
-        bearImageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
+    fileprivate func setupBearImageView(unwrappedPage: Page) {
+        bearImageView = UIImageView(image: UIImage(named: unwrappedPage.imageName))
         topImageContainerView.addSubview(bearImageView)
         bearImageView.setImageViewConstraints(xAnchor: topImageContainerView.centerXAnchor, yAnchor: topImageContainerView.centerYAnchor, heightAnchor: topImageContainerView.heightAnchor, multiplier: 0.5)
     }
@@ -90,13 +91,11 @@ extension PageCell {
         topImageContainerView.setupUIViewConstraints(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, heightAnchor: heightAnchor, heightAnchorMultiplier: 0.5)
     }
     
-    fileprivate func setupDescriptionTextView() {
+    fileprivate func setupDescriptionTextView(unwrappedPage: Page) {
         descriptionTextView = UITextView()
         addSubview(descriptionTextView)
         
-        guard let pageHeaderText = page?.headerText else { return }
-        
-        descriptionTextView.setupTextView(text: pageHeaderText)
+        descriptionTextView.setupTextView(headerText: unwrappedPage.headerText, bodyText: unwrappedPage.bodyText)
         descriptionTextView.textAlignment = .center
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = false
