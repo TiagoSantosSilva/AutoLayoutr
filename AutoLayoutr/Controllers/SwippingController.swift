@@ -33,6 +33,26 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.isPagingEnabled = true
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        coordinator.animate(alongsideTransition: { (_) in
+            self.collectionViewLayout.invalidateLayout()
+            
+            if self.pageControl.currentPage == 0 {
+                self.collectionView?.contentOffset = .zero
+            } else {
+                let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
+                self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            }
+        }, completion: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+}
+
+extension SwipingController {
     fileprivate func setupBottomControls() {
         previousButton = setupBottomButton(title: "PREV", titleColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
         previousButton.addTarget(self, action: #selector(handlePrevButtonTapped), for: .touchUpInside)
@@ -64,10 +84,6 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         button.setTitleColor(titleColor, for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         return button
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return false
     }
 }
 
