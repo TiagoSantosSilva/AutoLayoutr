@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var previousButton: UIButton!
     var nextButton: UIButton!
     var bottomControlsStackView: UIStackView!
+    var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,24 +39,31 @@ extension ViewController {
     }
     
     fileprivate func setupBottomControls() {
-        let yellowView = UIView()
-        yellowView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        previousButton = setupBottomButton(title: "PREV", titleColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+        nextButton = setupBottomButton(title: "NEXT", titleColor: getPinkColor())
+        pageControl = setupBottomPageControl()
         
-        previousButton = setupBottomButton(title: "PREV")
-        nextButton = setupBottomButton(title: "NEXT")
-        
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, yellowView, nextButton])
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
         view.addSubview(bottomControlsStackView)
         bottomControlsStackView.setupUIViewConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, heightConstant: 50)
         bottomControlsStackView.distribution = .fillEqually
         
     }
     
-    fileprivate func setupBottomButton(title: String) -> UIButton {
+    fileprivate func setupBottomPageControl() -> UIPageControl {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = 4
+        pageControl.currentPageIndicatorTintColor = getPinkColor()
+        pageControl.pageIndicatorTintColor = getFadedPinkColor()
+        return pageControl
+    }
+    
+    fileprivate func setupBottomButton(title: String, titleColor: UIColor) -> UIButton {
         let button = UIButton(type: .system)
         button.setupButtonBackgroundColorTitleType(backgroundColor: .clear, title: "PREV", type: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         return button
     }

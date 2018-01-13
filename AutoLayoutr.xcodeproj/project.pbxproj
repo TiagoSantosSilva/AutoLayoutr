@@ -16,6 +16,7 @@
 		2754F2B220095C2D009A2107 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754F2B120095C2D009A2107 /* UITextViewExtension.swift */; };
 		27A65EFA200A622A005E5AFF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65EF9200A622A005E5AFF /* UIViewExtension.swift */; };
 		27A65EFD200A640B005E5AFF /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65EFC200A640B005E5AFF /* UIButtonExtension.swift */; };
+		27A65F03200A8322005E5AFF /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A65F02200A8322005E5AFF /* UIColorHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2754F2B120095C2D009A2107 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		27A65EF9200A622A005E5AFF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		27A65EFC200A640B005E5AFF /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		27A65F02200A8322005E5AFF /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		2705CF14200942D700D62F4E /* AutoLayoutr */ = {
 			isa = PBXGroup;
 			children = (
+				27A65F00200A8310005E5AFF /* Helpers */,
 				27A65EFB200A63F8005E5AFF /* Extensions */,
 				2705CF15200942D700D62F4E /* AppDelegate.swift */,
 				2705CF17200942D700D62F4E /* ViewController.swift */,
@@ -82,6 +85,14 @@
 				27A65EFC200A640B005E5AFF /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27A65F00200A8310005E5AFF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27A65F02200A8322005E5AFF /* UIColorHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 				2705CF2A2009499F00D62F4E /* UIImageViewExtension.swift in Sources */,
 				2754F2B220095C2D009A2107 /* UITextViewExtension.swift in Sources */,
 				27A65EFD200A640B005E5AFF /* UIButtonExtension.swift in Sources */,
+				27A65F03200A8322005E5AFF /* UIColorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
