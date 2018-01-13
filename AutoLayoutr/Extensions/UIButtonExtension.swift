@@ -14,9 +14,9 @@ extension UIButton {
         self.setTitle(title, for: type)
     }
     
-    func setButtonAnchors(topAnchor: NSLayoutYAxisAnchor, leadingAnchor: NSLayoutXAxisAnchor, trailingAnchor: NSLayoutXAxisAnchor, heightConstant: CGFloat) {
+    func setButtonAnchors(bottomAnchor: NSLayoutYAxisAnchor, leadingAnchor: NSLayoutXAxisAnchor, trailingAnchor: NSLayoutXAxisAnchor, heightConstant: CGFloat) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         self.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         self.heightAnchor.constraint(equalToConstant: heightConstant).isActive = true
