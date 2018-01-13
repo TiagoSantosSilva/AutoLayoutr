@@ -14,8 +14,8 @@ class PageCell: UICollectionViewCell {
         didSet {
             guard let unwrappedPage = page else { return }
             
-            setupBearImageView(unwrappedPage: unwrappedPage)
-            setupDescriptionTextView(unwrappedPage: unwrappedPage)
+            setupBearImageViewImage(unwrappedPage)
+            setupDescriptionTextViewText(unwrappedPage)
         }
     }
 
@@ -41,10 +41,16 @@ extension PageCell {
     fileprivate func setupTopImageContainerView() {
         topImageContainerView = UIView()
         setupImageContainerViewConstraints()
+        setupBearImageView()
+        setupDescriptionTextView()
     }
     
-    fileprivate func setupBearImageView(unwrappedPage: Page) {
-        bearImageView = UIImageView(image: UIImage(named: unwrappedPage.imageName))
+    fileprivate func setupBearImageViewImage(_ unwrappedPage: Page) {
+        bearImageView.image = UIImage(named: unwrappedPage.imageName)
+    }
+    
+    fileprivate func setupBearImageView() {
+        bearImageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
         topImageContainerView.addSubview(bearImageView)
         bearImageView.setImageViewConstraints(xAnchor: topImageContainerView.centerXAnchor, yAnchor: topImageContainerView.centerYAnchor, heightAnchor: topImageContainerView.heightAnchor, multiplier: 0.5)
     }
@@ -56,13 +62,19 @@ extension PageCell {
         topImageContainerView.setupUIViewConstraints(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, heightAnchor: heightAnchor, heightAnchorMultiplier: 0.5)
     }
     
-    fileprivate func setupDescriptionTextView(unwrappedPage: Page) {
+    fileprivate func setupDescriptionTextViewText(_ unwrappedPage: Page) {
+        descriptionTextView.setupTextView(headerText: unwrappedPage.headerText, bodyText: unwrappedPage.bodyText)
+        descriptionTextView.textAlignment = .center
+    }
+    
+    fileprivate func setupDescriptionTextView() {
         descriptionTextView = UITextView()
         descriptionTextView.backgroundColor = .clear
         addSubview(descriptionTextView)
         
-        descriptionTextView.setupTextView(headerText: unwrappedPage.headerText, bodyText: unwrappedPage.bodyText)
+        descriptionTextView.setupTextView(headerText: "PLACEHOLDER", bodyText: "PLACEHOLDER")
         descriptionTextView.textAlignment = .center
+        
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = false
         descriptionTextView.setupTextViewAnchors(topAnchor: topImageContainerView.bottomAnchor, leftAnchor: leftAnchor, rightAnchor: rightAnchor, bottomAnchor: bottomAnchor, bottomAnchorConstant: 0)

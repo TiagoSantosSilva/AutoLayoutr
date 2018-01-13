@@ -36,9 +36,9 @@ extension SwipingController {
     internal func setupBottomButton(title: String, titleColor: UIColor) -> UIButton {
         let button = UIButton(type: .system)
         button.setupButtonBackgroundColorTitleType(backgroundColor: .clear, title: title, type: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(titleColor, for: .normal)
-        button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         return button
     }
 }
