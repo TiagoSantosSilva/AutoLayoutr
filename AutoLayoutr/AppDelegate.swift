@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
+        let layout = UICollectionViewLayout()
+        let swippingController = SwippingController(collectionViewLayout: layout)
+        window?.rootViewController = swippingController
         return true
     }
 
