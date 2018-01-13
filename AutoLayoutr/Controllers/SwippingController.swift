@@ -12,6 +12,11 @@ private let reuseIdentifier = "cellId"
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    private var previousButton: UIButton!
+    private var nextButton: UIButton!
+    private var bottomControlsStackView: UIStackView!
+    private var pageControl: UIPageControl!
+    
     let pages = [
         Page(imageName: "bear_first", headerText: "Join us today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
         Page(imageName: "heart_second", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediatily when we announce them on our website. Make sure to also give us any feedback you have."),
@@ -20,6 +25,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBottomControls()
         
         collectionView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         collectionView?.register(PageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -27,6 +33,45 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.isPagingEnabled = true
     }
     
+    fileprivate func setupBottomControls() {
+        previousButton = setupBottomButton(title: "PREV", titleColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+        previousButton.addTarget(self, action: #selector(handlePrevButtonTapped), for: .touchUpInside)
+        
+        nextButton = setupBottomButton(title: "NEXT", titleColor: .mainPink)
+        nextButton.addTarget(self, action: #selector(handleNextButtonTapped), for: .touchUpInside)
+        
+        pageControl = setupBottomPageControl()
+        
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
+        view.addSubview(bottomControlsStackView)
+        bottomControlsStackView.setupUIViewConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, heightConstant: 50)
+        bottomControlsStackView.distribution = .fillEqually
+    }
+    
+    fileprivate func setupBottomPageControl() -> UIPageControl {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = 4
+        pageControl.currentPageIndicatorTintColor = .mainPink
+        pageControl.pageIndicatorTintColor = .fadedPink
+        return pageControl
+    }
+    
+    fileprivate func setupBottomButton(title: String, titleColor: UIColor) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setupButtonBackgroundColorTitleType(backgroundColor: .clear, title: title, type: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(titleColor, for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        return button
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+}
+
+extension SwipingController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -37,7 +82,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PageCell
-       
+        
         cell.page = pages[indexPath.item]
         return cell
     }
@@ -45,9 +90,15 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
+}
+
+extension SwipingController {
+    @objc private func handleNextButtonTapped() {
+        print("Trying to advance to next.")
+    }
     
-    override var prefersStatusBarHidden: Bool {
-        return false
+    @objc private func handlePrevButtonTapped() {
+        print("Trying to back to previous.")
     }
 }
 
