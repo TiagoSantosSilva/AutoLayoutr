@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var descriptionTextView: UITextView!
     var topImageContainerView: UIView!
     var previousButton: UIButton!
+    var bottomControlsStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,17 @@ extension ViewController {
     }
     
     fileprivate func setupBottomControls() {
-        setupPreviousButton()
+        let yellowView = UIView()
+        yellowView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        
+        let blueView = UIView()
+        blueView.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [yellowView, blueView])
+        view.addSubview(bottomControlsStackView)
+        bottomControlsStackView.setupUIViewConstraints(bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, heightConstant: 50)
+        bottomControlsStackView.distribution = .fillEqually
+        // setupPreviousButton()
     }
     
     fileprivate func setupPreviousButton() {

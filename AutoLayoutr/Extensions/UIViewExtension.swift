@@ -17,4 +17,12 @@ extension UIView {
         self.heightAnchor.constraint(equalTo: heightAnchor, multiplier: heightAnchorMultiplier).isActive = true
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func setupUIViewConstraints(bottomAnchor: NSLayoutYAxisAnchor, leadingAnchor: NSLayoutXAxisAnchor, trailingAnchor: NSLayoutXAxisAnchor, heightConstant: CGFloat) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        self.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        self.heightAnchor.constraint(equalToConstant: heightConstant).isActive = true
+    }
 }
