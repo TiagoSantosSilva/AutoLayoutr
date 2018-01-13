@@ -41,8 +41,8 @@ extension ViewController {
         let yellowView = UIView()
         yellowView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         
-        setupPreviousButton()
-        setupNextButton()
+        previousButton = setupBottomButton(title: "PREV")
+        nextButton = setupBottomButton(title: "NEXT")
         
         let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, yellowView, nextButton])
         view.addSubview(bottomControlsStackView)
@@ -51,20 +51,13 @@ extension ViewController {
         
     }
     
-    fileprivate func setupPreviousButton() {
-        previousButton = UIButton(type: .system)
-        previousButton.setupButtonBackgroundColorTitleType(backgroundColor: #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1), title: "PREV", type: .normal)
-        previousButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        previousButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
-        previousButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-    }
-    
-    fileprivate func setupNextButton() {
-        nextButton = UIButton(type: .system)
-        nextButton.setupButtonBackgroundColorTitleType(backgroundColor: #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), title: "NEXT", type: .normal)
-        nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        nextButton.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
-        nextButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+    fileprivate func setupBottomButton(title: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setupButtonBackgroundColorTitleType(backgroundColor: .clear, title: "PREV", type: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        return button
     }
     
     fileprivate func setupTopImageContainerView() {
