@@ -44,7 +44,7 @@ extension ViewController {
         previousButton.setupButtonBackgroundColorTitleType(backgroundColor: #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1), title: "Prev", type: .normal)
         previousButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         view.addSubview(previousButton)
-        previousButton.setButtonAnchors(topAnchor: view.topAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, heightConstant: 50)
+        previousButton.setButtonAnchors(topAnchor: view.safeAreaLayoutGuide.topAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, heightConstant: 50)
     }
     
     fileprivate func setupTopImageContainerView() {
