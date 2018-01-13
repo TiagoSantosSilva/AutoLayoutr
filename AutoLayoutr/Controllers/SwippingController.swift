@@ -16,7 +16,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         super.viewDidLoad()
         
         collectionView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView?.register(PageCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         collectionView?.isPagingEnabled = true
     }
@@ -31,7 +31,6 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         return cell
     }
     
