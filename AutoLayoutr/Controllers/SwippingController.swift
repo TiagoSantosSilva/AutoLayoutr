@@ -12,6 +12,8 @@ private let reuseIdentifier = "cellId"
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    let imageNames = ["bear_first", "heart_second", "leaf_third"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,11 +28,14 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return imageNames.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PageCell
+        
+        let imageName = imageNames[indexPath.item]
+        cell.bearImageView.image = UIImage(named: imageName)
         return cell
     }
     
