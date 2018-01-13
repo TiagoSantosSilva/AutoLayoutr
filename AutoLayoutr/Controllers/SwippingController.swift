@@ -37,10 +37,8 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PageCell
-        
-        cell.bearImageView.image = UIImage(named: pages[indexPath.item].imageName)
-        cell.descriptionTextView.text = pages[indexPath.item].headerText
-        
+       
+        cell.page = pages[indexPath.item]
         return cell
     }
     

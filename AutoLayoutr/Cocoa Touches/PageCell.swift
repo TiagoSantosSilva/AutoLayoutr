@@ -10,13 +10,19 @@ import UIKit
 
 class PageCell: UICollectionViewCell {
     
-    var bearImageView: UIImageView!
-    var descriptionTextView: UITextView!
-    var topImageContainerView: UIView!
-    var previousButton: UIButton!
-    var nextButton: UIButton!
-    var bottomControlsStackView: UIStackView!
-    var pageControl: UIPageControl!
+    var page: Page? {
+        didSet {
+            print(page?.imageName)
+        }
+    }
+    
+    private var bearImageView: UIImageView!
+    private var descriptionTextView: UITextView!
+    private var topImageContainerView: UIView!
+    private var previousButton: UIButton!
+    private var nextButton: UIButton!
+    private var bottomControlsStackView: UIStackView!
+    private var pageControl: UIPageControl!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,7 +93,10 @@ extension PageCell {
     fileprivate func setupDescriptionTextView() {
         descriptionTextView = UITextView()
         addSubview(descriptionTextView)
-        descriptionTextView.setupTextView(text: "Join us today in our fun and games!")
+        
+        guard let pageHeaderText = page?.headerText else { return }
+        
+        descriptionTextView.setupTextView(text: pageHeaderText)
         descriptionTextView.textAlignment = .center
         descriptionTextView.isEditable = false
         descriptionTextView.isScrollEnabled = false
